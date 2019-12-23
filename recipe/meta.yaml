@@ -28,7 +28,7 @@ requirements:
     - numpy
 
 test:
-  import:
+  imports:
     - texplain
   commands:
     - texplain --help
