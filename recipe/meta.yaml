@@ -1,6 +1,6 @@
 {% set name = "texplain" %}
-{% set version = "0.3.1" %}
-{% set sha256 = "1ec10caca2f7549d2c8b57b9a6df1458d2314e4344f15f3f585f7fe0d587eb2a" %}
+{% set version = "0.3.2" %}
+{% set sha256 = "06d37eb864d497f9d6582d6354626e590ef8ff217919ce7dc4ee3d4aed95c70c" %}
 
 package:
   name: {{ name|lower }}
