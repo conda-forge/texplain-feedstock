@@ -1,6 +1,6 @@
 {% set name = "texplain" %}
-{% set version = "0.3.0" %}
-{% set sha256 = "9794e05fde977a51168b5554cba3f13a2e87c46459fc005f9c27f19da2a539c3" %}
+{% set version = "0.3.1" %}
+{% set sha256 = "1ec10caca2f7549d2c8b57b9a6df1458d2314e4344f15f3f585f7fe0d587eb2a" %}
 
 package:
   name: {{ name|lower }}
@@ -28,6 +28,8 @@ requirements:
     - numpy
 
 test:
+  imports:
+    - texplain
   commands:
     - texplain --help
 
