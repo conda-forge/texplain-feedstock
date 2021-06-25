@@ -1,6 +1,6 @@
 {% set name = "texplain" %}
-{% set version = "0.3.3" %}
-{% set sha256 = "eacacb88c0da598286fb14e5a8410b14d5da9cc510732a8228dccddb432e8fc7" %}
+{% set version = "0.3.4" %}
+{% set sha256 = "388c592c9cb2a24214979fc9ee321c68aaa8df3b2d750720c5d080a3c98f23bb" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - texplain = texplain:main
 
@@ -38,8 +38,8 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Create a directory with a TeX-file and only its dependencies'
-  description: 'Create a directory with a TeX-file and only its dependencies'
+  summary: Create a directory with a TeX-file and only its dependencies
+  description: Create a directory with a TeX-file and only its dependencies
   doc_url: https://github.com/tdegeus/texplain
   dev_url: https://github.com/tdegeus/texplain
 
