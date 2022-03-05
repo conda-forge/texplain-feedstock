@@ -1,47 +1,52 @@
 {% set name = "texplain" %}
+{% set org = "tdegeus" %}
 {% set version = "0.4.1" %}
-{% set sha256 = "bbc3978455a8a834262b13f640f97d57c799582784f27c9fc9084dc49d9c1728" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/tdegeus/texplain/archive/v{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: bbc3978455a8a834262b13f640f97d57c799582784f27c9fc9084dc49d9c1728
 
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
-    - texplain = texplain:main
+    - texplain = texplain:_texplain_catch
+    - texcleanup = texcleanup:_texcleanup_catch
 
 requirements:
   host:
-    - python >=3
     - pip
-  run:
     - python >=3
-    - docopt
+    - setuptools_scm
+  run:
     - click
     - numpy
+    - python >=3
 
 test:
   imports:
-    - texplain
+    - {{ name }}
   commands:
-    - texplain --help
+    - pip check
+    - python -c "import {{ name }}; print({{ name }}.version)"
+    - texplain --version
+    - texpcleanup --version
 
 about:
-  home: https://github.com/tdegeus/texplain
+  home: https://github.com/{{ org }}/{{ name }}
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: Create a directory with a TeX-file and only its dependencies
-  description: Create a directory with a TeX-file and only its dependencies
-  doc_url: https://github.com/tdegeus/texplain
-  dev_url: https://github.com/tdegeus/texplain
+  summary: Clean-up TeX files and/or create clean output directory
+  description: Clean-up TeX files and/or create clean output directory
+  doc_url: https://github.com/{{ org }}/{{ name }}
+  dev_url: https://github.com/{{ org }}/{{ name }}
 
 extra:
   recipe-maintainers:
