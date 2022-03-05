@@ -36,7 +36,7 @@ test:
     - pip check
     - python -c "import {{ name }}; print({{ name }}.version)"
     - texplain --version
-    - texpcleanup --version
+    - texcleanup --version
   requires:
     - pip
 
