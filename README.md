@@ -7,13 +7,13 @@ Package license: MIT
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/texplain-feedstock/blob/master/LICENSE.txt)
 
-Summary: Create a directory with a TeX-file and only its dependencies
+Summary: Clean-up TeX files and/or create clean output directory
 
 Development: https://github.com/tdegeus/texplain
 
 Documentation: https://github.com/tdegeus/texplain
 
-Create a directory with a TeX-file and only its dependencies
+Clean-up TeX files and/or create clean output directory
 
 Current build status
 ====================
