@@ -1,11 +1,11 @@
-About texplain
-==============
+About texplain-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/texplain-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/tdegeus/texplain
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/texplain-feedstock/blob/main/LICENSE.txt)
 
 Summary: Clean-up TeX files and/or create clean output directory
 
