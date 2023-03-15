@@ -1,6 +1,6 @@
 {% set name = "texplain" %}
 {% set org = "tdegeus" %}
-{% set version = "0.6.1" %}
+{% set version = "0.7.3" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 7364acdf533bb61833a54ee10330373982c57f7fce441b62dc136c016bd17111
+  sha256: a18a14da5d08a14eca1485082bf667452b8ef1a4212175400f55ae3952ff7996
 
 build:
   number: 0
@@ -16,8 +16,9 @@ build:
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
-    - texplain = texplain:_texplain_catch
-    - texcleanup = texplain:_texcleanup_catch
+    - texplain = {{ name }}:_texplain_cli
+    - texcleanup = {{ name }}:_texcleanup_cli
+    - texindent = {{ name }}:_texindent_cli
 
 requirements:
   host:
@@ -30,23 +31,24 @@ requirements:
     - python >=3
 
 test:
+  requires:
+    - pip
   imports:
     - {{ name }}
   commands:
     - pip check
-    - python -c "import {{ name }}; print({{ name }}.version)"
-    - texplain --version
-    - texcleanup --version
-  requires:
-    - pip
+    - python -c "import {{ name }}; assert {{ name }}.version == '{{ version }}'"
+    - texplain --version | grep {{ version }}
+    - texcleanup --version | grep {{ version }}
+    - texindent --version | grep {{ version }}
 
 about:
   home: https://github.com/{{ org }}/{{ name }}
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: Clean-up TeX files and/or create clean output directory
-  description: Clean-up TeX files and/or create clean output directory
+  summary: Formatting tools for TeX files
+  description: Formatting tools for TeX files
   doc_url: https://github.com/{{ org }}/{{ name }}
   dev_url: https://github.com/{{ org }}/{{ name }}
 
