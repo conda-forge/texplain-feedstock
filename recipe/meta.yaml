@@ -31,23 +31,24 @@ requirements:
     - python >=3
 
 test:
+  requires:
+    - pip
   imports:
     - {{ name }}
   commands:
     - pip check
-    - python -c "import {{ name }}; print({{ name }}.version)"
-    - texplain --version
-    - texcleanup --version
-  requires:
-    - pip
+    - python -c "import {{ name }}; assert {{ name }}.version == '{{ version }}'"
+    - texplain --version | grep {{ version }}
+    - texcleanup --version | grep {{ version }}
+    - texindent --version | grep {{ version }}
 
 about:
   home: https://github.com/{{ org }}/{{ name }}
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: Clean-up TeX files and/or create clean output directory
-  description: Clean-up TeX files and/or create clean output directory
+  summary: Formatting tools for TeX files
+  description: Formatting tools for TeX files
   doc_url: https://github.com/{{ org }}/{{ name }}
   dev_url: https://github.com/{{ org }}/{{ name }}
 
