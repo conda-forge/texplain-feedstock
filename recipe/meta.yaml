@@ -16,8 +16,9 @@ build:
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
-    - texplain = texplain:_texplain_catch
-    - texcleanup = texplain:_texcleanup_catch
+    - texplain = {{ name }}:_texplain_cli
+    - texcleanup = {{ name }}:_texcleanup_cli
+    - texindent = {{ name }}:_texindent_cli
 
 requirements:
   host:
