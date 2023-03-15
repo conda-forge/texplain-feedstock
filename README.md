@@ -7,13 +7,13 @@ Home: https://github.com/tdegeus/texplain
 
 Package license: MIT
 
-Summary: Clean-up TeX files and/or create clean output directory
+Summary: Formatting tools for TeX files
 
 Development: https://github.com/tdegeus/texplain
 
 Documentation: https://github.com/tdegeus/texplain
 
-Clean-up TeX files and/or create clean output directory
+Formatting tools for TeX files
 
 Current build status
 ====================
