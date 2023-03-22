@@ -29,6 +29,7 @@ requirements:
     - click
     - numpy
     - python >=3
+    - typing_extensions
 
 test:
   requires:
