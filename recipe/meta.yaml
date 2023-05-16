@@ -1,6 +1,6 @@
 {% set name = "texplain" %}
 {% set org = "tdegeus" %}
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: c96706862c11309521c1656b48c4d4d979c7c4f4a46d5e28f0024866e78b3ac5
+  sha256: 2570670ee16cddfbdf3bdc25b364ef77c45edaf268e8672a817c755a4caa3311
 
 build:
   number: 0
