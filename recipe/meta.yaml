@@ -1,4 +1,4 @@
-{% set version = "0.8.9" %}
+{% set version = "0.8.10" %}
 
 package:
   name: texplain
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/tdegeus/texplain/archive/v{{ version }}.tar.gz
-  sha256: e54d311cfba4056f99d1f9089c9af46c66cc12d400651bff657b13d234d5cea2
+  sha256: 4d182df04fabf5705dde30017abc1d9b53553ac9b0c027f0b2a8d15a3467c528
 
 build:
   number: 0
