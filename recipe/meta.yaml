@@ -9,7 +9,7 @@ source:
   sha256: 4b3a73f10398f52d1ecefa4038194276537526109ff5f6087b548551528899d4
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . -vv
@@ -21,13 +21,13 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools >=45
     - setuptools_scm >=6.2
   run:
     - click
     - numpy
-    - python >=3.6
+    - python >={{ python_min }}
     - typing_extensions
 
 test:
@@ -41,6 +41,7 @@ test:
     - texindent --version | grep {{ version }}
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/tdegeus/texplain
